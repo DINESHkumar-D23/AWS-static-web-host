@@ -61,6 +61,7 @@ Add security headers
 Log requests
 
 Attach the function in the CloudFront settings (viewer request or origin request)
+My website Domain Name: 'ddq08qbfddfbu.cloudfront.net' (NOTE: THE DOMAIN IS NOT STILL AVAILABLE).
 
 Things to Remember
 
@@ -70,9 +71,9 @@ Make sure the S3 bucket is accessible from CloudFront.
 
 Use HTTPS and set up custom domains if needed through Route 53.
 
-About Me
+About Me:
 
-Project by Dineshkumar D
-GitHub: github.com/DINESHkumar-D23
-LinkedIn: linkedin.com/in/dineshkumar-d-b54a21325
+Project by Dineshkumar D,
+GitHub: github.com/DINESHkumar-D23,
+LinkedIn: linkedin.com/in/dineshkumar-d-b54a21325.
 
