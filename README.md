@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+AWS Static Web Host
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project shows how to host a static website using Amazon Web Services (AWS). The main services used are:
 
-## Available Scripts
+S3 to store the static files like HTML, CSS, JavaScript
 
-In the project directory, you can run:
+CloudFront delivers the website fast all around the world
 
-### `npm start`
+Lambda (used like a proxy) to help with redirects or header changes
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+What this project contains
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The "public" folder holds the static files (like index.html)
 
-### `npm test`
+The "src" folder contains the source code (if you used React or similar)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The "build" folder is the final output after you run the build command
 
-### `npm run build`
+The "lambda" folder (if included) has the code for Lambda to handle things like redirects
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Services Used and Their Purpose
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+S3 is used to store and host the website files.
+CloudFront makes the website load faster by caching it across global servers.
+Lambda is used to make changes to the request or response, like adding headers or redirecting URLs.
+Route 53 can be used if you want to add your custom domain.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Steps to Host the Website
 
-### `npm run eject`
+First, run the build command to get the final output.
+For example, if this is a React app, use:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+npm install
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+npm run build
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Go to the AWS S3 console.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Create a new bucket.
 
-## Learn More
+Enable static website hosting.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Upload the files from the build folder.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Set the bucket permissions to allow public read access or use CloudFront with OAI.
 
-### Code Splitting
+Go to the AWS CloudFront console.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Create a new distribution.
 
-### Analyzing the Bundle Size
+Set the origin to your S3 bucket.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+(Optional) Attach a Lambda function if you want to handle things like URL rewriting.
 
-### Making a Progressive Web App
+If you're using Lambda as a proxy:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+It can be used to redirect pages (like from /home to /index.html)
 
-### Advanced Configuration
+Add security headers
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Log requests
 
-### Deployment
+Attach the function in the CloudFront settings (viewer request or origin request)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Things to Remember
 
-### `npm run build` fails to minify
+If you update your site, don't forget to invalidate the CloudFront cache so the new version appears.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Make sure the S3 bucket is accessible from CloudFront.
+
+Use HTTPS and set up custom domains if needed through Route 53.
+
+About Me
+
+Project by Dineshkumar D
+GitHub: github.com/DINESHkumar-D23
+LinkedIn: linkedin.com/in/dineshkumar-d-b54a21325
+
