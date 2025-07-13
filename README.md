@@ -71,6 +71,28 @@ Make sure the S3 bucket is accessible from CloudFront.
 
 Use HTTPS and set up custom domains if needed through Route 53.
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+About the Project:
+
+Job Tracker
+
+Purpose
+Job Tracker is a simple React web application designed to help users find job listings and keep track of jobs they are interested in. Users can search for jobs by title and location, view the top results, and save jobs for future reference.
+
+Features
+
+https://github.com/user-attachments/assets/ea351175-3be3-4ba3-94ec-7df7df14b296
+
+
+Search jobs by title and location
+View top job results with details (title, company, location)
+Track jobs and save them locally using browser localStorage
+Clean, modern UI for easy job management
+API Used
+This app uses the JSearch API from RapidAPI to fetch job listings. The API is accessed via the endpoint:
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 About Me:
 
 Project by Dineshkumar D,
